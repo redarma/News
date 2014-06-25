@@ -46,7 +46,7 @@ public class Registrarse extends HttpServlet {
 		usuario.setEstado(true);
 		
 		UsuarioDAO registrar = new UsuarioDAO();
-		registrar.New(usuario);
+		registrar.Save(usuario);
 		
 	}
 

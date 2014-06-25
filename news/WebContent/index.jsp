@@ -1,88 +1,191 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
 <head>
-<title>The Web News</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="styles/style.css" />
-<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="styles/ie.css" /><![endif]-->
+<title>Dark Pro</title>
+<meta http-equiv="content-type" content="application/xhtml; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+   <link rel="stylesheet" href="css/login.css" media="screen" type="text/css" />
+<!--[if lt IE 8.]><link rel="stylesheet" type="text/css" href="css/style-ie.css" /><![endif]-->
+<!--[if lt IE 7.]><link rel="stylesheet" type="text/css" href="css/style-ie6.css" /><![endif]-->
+<!--  STEP ONE: insert path to SWFObject JavaScript -->
+<script type="text/javascript" src="js/swfobject/swfobject.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+     <script src='js/jquery.js'></script>
+<!--  STEP TWO: configure SWFObject JavaScript and embed CU3ER slider -->
+<script type="text/javascript">
+if($===jQuery){jQuery.noConflict();}
+var flashvars = {};
+flashvars.xml = "config.xml";
+flashvars.font = "font.swf";
+var attributes = {};
+attributes.wmode = "transparent";
+attributes.id = "slider";
+swfobject.embedSWF("cu3er.swf", "cu3er-container", "920", "327", "9", "expressInstall.swf", flashvars, attributes);
+// ajax interfaces
+</script>
 </head>
 <body>
-<!-- BEGIN wrapper -->
-<div id="wrapper">
-  <!-- BEGIN header -->
-  <div id="header">
-    <div align="right"></div>
-    <ul>
-      <li class="f"><a href="index.jsp">Home</a></li>
-      <li><a href="about.jsp">Sobre Nosotros</a></li>
-      <li><a href="page.jsp">Noticias</a></li>
-      <li><a href="contact.jsp">Contact Page</a></li>
-    </ul>
-    <p class="links">Subscribe: <a href="#">Posts</a> | <a href="#">Comments</a> | <a href="#">Email</a> </p>
-    <div class="break"></div>
-    <div class="logo">
-      <h1><a href="#">The Web News</a></h1>
-      <p>Free CSS Template</p>
+<!-- Main Body Starts Here -->
+<div id="main_body">
+  <!-- Top Part Starts Here -->
+  <div id="top_part">
+    <!-- Top Part Image Starts Here -->
+    <div id="top_part_image">
+      <!-- Logo Part Starts Here -->
+      <div id="main_logo"> <a href="#"><img src="images/logo.png"  alt="" width="100"  /></a> </div>
+      <div id="login"> <a href="#"><img src="images/login.png"  alt="" width="28"/></a> </div>
+      <!-- Logo Part Ends Here -->
     </div>
-    <div class="break"></div>
-    <ol>
-      <li><a href="#">Advertising</a></li>
-      <li><a href="#">Entertainment</a></li>
-      <li><a href="#">Fashion</a></li>
-      <li><a href="#">Lifestyle</a></li>
-      <li><a href="#">Pictures</a></li>
-      <li><a href="#">Videos</a></li>
-    </ol>
-
+    <!-- Top Part Image Ends Here -->
+    <!-- Main Menu Starts Here -->
+    <div id="main_menu_bg">
+      <!-- Main Menu Body Starts Here -->
+      <div id="main_menu_body">
+        <!-- Menu Links Starts Here -->
+        <div class="menu_links"> 
+        <a href="index.html" class="menu_active">INICIO</a><span class="menu_border">&nbsp;</span> 
+        <span id="categorias"></span>
+        <a href="about.html" class="menu_links">ABOUT</a>
+                <a href="about.html" class="menu_links">ABOUT</a>
+                        <a href="about.html" class="menu_links">ABOUT</a>
+                        
+        <a href="client.html" class="menu_links">CONTACTATE</a>
+        </div>
+   <div class="login">
+      <div class="arrow-up"></div>
+      <div class="formholder">
+        <div class="randompad">
+           <fieldset>
+             <label name="usuario">Usuario</label>
+             <input type="usuario" value="" id="usuario"/>
+             <label name="password">Password</label>
+             <input type="password" id="password"/>
+             <input type="submit" value="Login"  id="login"/>
+           </fieldset>
+        </div>
+      </div>
   </div>
-  <div id="content">
-    <div class="post">
-      <div class="thumb"><a href="#"><img src="images/_thumb2.jpg" alt="" /></a></div>
-      <h2><a href="#">A cras tincidunt, ut tellus et Gravida Ipsum</a></h2>
-      <p class="date">Posted on January 7, 2008 by admin</p>
-      <p>Elementum ea, nibh et, velit sed sagittis. Ipsum libero. Viverra integer enim, sed dolor. Inceptos elit, vitae et. Eget eget nec, lectus nisl, vehicula est feugiat. cum condimentum mattis dui fusce ut, vel convallis suspendisse suspendisse sed in. Libero blandit curae at magna ut, id mauris suspendisse ligula neque integer non.</p>
-      <a class="continue" href="#">Continue Reading</a> </div>
-    <div class="post">
-      <div class="thumb"><a href="#"><img src="images/_thumb2.jpg" alt="" /></a></div>
-      <h2><a href="#">A cras tincidunt, ut tellus et Gravida Ipsum</a></h2>
-      <p class="date">Posted on January 7, 2008 by admin</p>
-      <p>Elementum ea, nibh et, velit sed sagittis. Ipsum libero. Viverra integer enim, sed dolor. Inceptos elit, vitae et. Eget eget nec, lectus nisl, vehicula est feugiat. cum condimentum mattis dui fusce ut, vel convallis suspendisse suspendisse sed in. Libero blandit curae at magna ut, id mauris suspendisse ligula neque integer non.</p>
-      <a class="continue" href="#">Continue Reading</a> </div>
-    <!-- end post navigation -->
-  </div>
-  <!-- END content -->
-  <!-- BEGIN sidebar -->
-  <div class="column">
-    <!-- begin search -->
-    <form class="search" action="#">
-      <input type="text" name="s" id="s" />
-      <button type="submit">Search</button>
-    </form>
-    <!-- end search -->
-    <div class="wrapper">
-      <!-- begin popular posts -->
-      <h2>Popular Posts</h2>
-      <ul class="latestnews">
-        <li><img class="imagentop" src="images/_thumb2.jpg" alt="" />
-          <p><strong><a href="#">Indonectetus facilis leo.</a></strong> Nullamlacus dui ipsum cons eque loborttis non euis que morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque.</p>
-        </li>
-        <li><img src="images/_thumb2.jpg" alt="" />
-          <p><strong><a href="#">Indonectetus facilis leo.</a></strong> Nullamlacus dui ipsum cons eque loborttis non euis que morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque.</p>
-        </li>
-        <li class="last"><img src="images/_thumb2.jpg" alt="" />
-          <p><strong><a href="#">Indonectetus facilis leo.</a></strong> Nullamlacus dui ipsum cons eque loborttis non euis que morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque.</p>
-        </li>
-      </ul>
-      <!-- END right -->
+        <!-- Menu Links Ends Here -->
+      </div>
+      <!-- Main Menu Body Ends Here -->
     </div>
+    <!-- Main Menu Ends Here -->
   </div>
-  <!-- END sidebar -->
-  <!-- BEGIN footer -->
+  <!-- Top Part Ends Here -->
+  <!-- Content Body Starts Here -->
+  <div id="content_body">
+    <!-- Home Content Slider Starts Here -->
+    <div id="home_video_box">
+      <div id="cu3er-container"> <a href="#"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="" /> </a> </div>
+    </div>
+    <!-- Home Content Slider Ends Here -->
+    <!-- Home News Starts Here -->
+    <div id="home_news_box">
+      <!-- Headers Starts Here -->
+      <div class="headers"> Latest News </div>
+      <!-- Headers Ends Here -->
+      <!-- News Starts Here -->
+      <!-- Box1 Starts Here -->
+      <div class="news_boxes">
+        <!-- Image Starts Here -->
+        <div class="home_news_img"> <a href="#"><img src="images/news_1.jpg"  alt=""  /></a> </div>
+        <!-- Image Ends Here -->
+        <!-- Text Starts Here -->
+        <div>
+          <p class="news_head"><a class="news_head" href="#">Creative Brochure Design</a></p>
+          <p>Creative Brochure Design Brochure Dimension: 301mm x 214mm Graphics Files Included: CorelDraw(.cdr)...</p>
+        </div>
+        <!-- Text Ends Here -->
+      </div>
+      <!-- Box1 Ends Here -->
+      <!-- Box2 Starts Here -->
+      <div class="news_boxes">
+        <!-- Image Starts Here -->
+        <div class="home_news_img"> <a href="#"><img src="images/news_2.jpg"  alt=""  /></a> </div>
+        <!-- Image Ends Here -->
+        <!-- Text Starts Here -->
+        <div>
+          <p class="news_head"><a class="news_head" href="#">Modern Portfolio Theme</a></p>
+          <p>Modern Portfolio Theme This PSD template is for Personal Portfolio Features: 1. Well organized layers and PSD...</p>
+        </div>
+        <!-- Text Ends Here -->
+      </div>
+      <!-- Box2 Ends Here -->
+      <!-- Box3 Starts Here -->
+      <div class="news_boxes">
+        <!-- Image Starts Here -->
+        <div class="home_news_img"> <a href="#"><img src="images/news_3.jpg" alt=""  width="70"/></a> </div>
+        <!-- Image Ends Here -->
+        <!-- Text Starts Here -->
+        <div>
+          <p class="news_head"><a class="news_head" href="#">Modern Email Template</a></p>
+          <p> Modern Email Template This Email Template is for Company, Business, Products, Blogs and Portfolio...</p>
+        </div>
+        <!-- Text Ends Here -->
+      </div>
+      <!-- Box3 Ends Here -->
+      <!-- Box4 Starts Here -->
+      <div class="news_boxes">
+        <!-- Image Starts Here -->
+        <div class="home_news_img"> <a href="#"><img src="images/news_4.jpg" alt=""  /></a> </div>
+        <!-- Image Ends Here -->
+        <!-- Text Starts Here -->
+        <div>
+          <p class="news_head"><a class="news_head" href="#">Modern Under Construction Template</a></p>
+          <p>Modern Under Construction Template Features Clean single page "Under Construction"...</p>
+        </div>
+        <!-- Text Ends Here -->
+      </div>
+      <!-- Box4 Ends Here -->
+      <!-- Box5 Starts Here -->
+      <div class="news_boxes">
+        <!-- Image Starts Here -->
+        <div class="home_news_img"> <a href="#"><img src="images/news_5.jpg" alt=""  /></a> </div>
+        <!-- Image Ends Here -->
+        <!-- Text Starts Here -->
+        <div>
+          <p class="news_head"><a class="news_head" href="#">Web2.0 Download Buttons</a></p>
+          <p>Web2.0 Download Buttons Features 1. Organized Layer sets 2. Easy to modify 3. Editable Text 4. Change the color easily...</p>
+        </div>
+        <!-- Text Ends Here -->
+      </div>
+      <!-- Box5 Ends Here -->
+      <!-- News Ends Here -->
+    </div>
+    <!-- Home News Ends Here -->
+    <!-- Home Social & Newsletter Part Starts here -->
+    <div id="inner_content_body">
+      <!-- Testimonial Starts Here -->
+      <!-- Testimonial Ends Here -->
+      <!-- News Letter Starts Here -->
+      <div id="newsletter_box">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+      <!-- NewsLetter Ends Here -->
+      <!-- Social Starts Here -->
+      <div id="social_bookmark_box"> <a href="#"><img src="images/twitter_icon.png" alt="" /></a> <a href="#"><img src="images/facebook_icon.png" alt="" /></a> <a href="#"><img src="images/linkdin_icon.png" alt="" /></a> </div>
+      <!-- Social Ends Here -->
+    </div>
+    <!-- Home Social & Newsletter Part Starts here -->
+    <!-- Home Right Box Starts here -->
+    <!-- Home Right Box Ends Here -->
+  </div>
+  <!-- Clear -->
+  <div class="clear"> </div>
+  <!-- Clear -->
+  <!-- Content Body Ends Here -->
+  <!--Footer Starts Here -->
   <div id="footer">
-    <p>Copyright &copy; 2014 - <a href="#">Sistema de Noticias</a> &middot; All Rights Reserved</p>
+    <div class="left">
+      <div class="footer_links" ><a  href="#">Inicio</a> &nbsp;| &nbsp;<a  href="#">Nosotros</a> &nbsp;| &nbsp;<a  href="#">Servicios</a></div>
+    </div>
+    <div class="right" style="padding-right:30px;"> Copyright &copy; 2014</div>
   </div>
-  <!-- END footer -->
+  <!-- Footer Ends Here -->
+  
 </div>
-<!-- END wrapper -->
+  <script src="js/login.js"></script>
+<!-- Main Body Ends Here -->
 </body>
 </html>

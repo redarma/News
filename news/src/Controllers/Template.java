@@ -92,7 +92,8 @@ public class Template
 	}
 
 	// visualiza el contenido resumido de una noticia
-	public String Generatenew(NoticiaBean noticia) {
+	public String Generatenew(NoticiaBean noticia)
+	{
 		String body = "<div class=\"post\"><div class=\"thumb\"><a href=\"main?proceso=view&new="+noticia.getNoticia()+"\"><img src=\""+noticia.GetImagen()+"\" alt=\"\" /></a></div> <h2>"
 				+ noticia.getDescripcion()
 				+ "</a></h2><p class=\"date\">"

@@ -31,7 +31,7 @@ public class UsuarioDAO
 		return beans;
 	}
 	
-	public void New(UsuarioBean cat)
+	public void Save(UsuarioBean cat)
 	{
 		// insert a new news into the  news table
 		String sql="Insert into usuario(usuario,nombres,dni,correo,estado,perfil)  values('"+cat.getUser()+"'"+
