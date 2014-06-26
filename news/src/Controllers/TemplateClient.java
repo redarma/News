@@ -23,13 +23,11 @@ public class TemplateClient {
 		Content += "<!--  STEP ONE: insert path to SWFObject JavaScript -->";
 		Content += "<script type=\"text/javascript\" src=\"js/swfobject/swfobject.js\"></script>";
 		Content += "<script type=\"text/javascript\" src=\"js/jquery.js\"></script>";
-		Content += "<script src='js/jquery.js'></script>";
 		Content += "<!--  STEP TWO: configure SWFObject JavaScript and embed CU3ER slider -->";
 		Content += "<script type=\"text/javascript\">";
 		Content += "if($===jQuery){jQuery.noConflict();}";
 		Content += "var flashvars = {};";
 		Content += "flashvars.xml = \"config.xml\";";
-		Content += "flashvars.font = \"font.swf\";";
 		Content += "var attributes = {};";
 		Content += "attributes.wmode = \"transparent\";";
 		Content += "attributes.id = \"slider\";";
@@ -104,8 +102,8 @@ public class TemplateClient {
 		Content += "<div class=\"formholder\">";
 		Content += "<div class=\"randompad\">";
 		Content += " <fieldset>";
-		Content += "<label name=\"email\">Email</label>";
-		Content += "<input type=\"email\" value=\"example@example.com\" />";
+		Content += "<label name=\"usuario\">Usuario</label>";
+		Content += "<input type=\"email\" value=\"\" />";
 		Content += "<label name=\"password\">Password</label>";
 		Content += "<input type=\"password\" />";
 		Content += "<input type=\"submit\" value=\"Login\" />";
@@ -242,8 +240,11 @@ public class TemplateClient {
 			body += "<!-- Image Ends Here -->";
 			body += "<!-- Text Starts Here -->";
 			body += "<div>";
-			body += "<p class=\"news_head\"><a class=\"news_head\" href=\"#\" rel=\""+New.getNoticia()+"\">"
-					+ New.getDescripcion() + "</a></p>";
+			body += "<p class=\"news_head\"><a class=\"news_head\" href=\"#\" rel=\""
+					+ New.getNoticia()
+					+ "\">"
+					+ New.getDescripcion()
+					+ "</a></p>";
 			// body+="<p>"+New.getresumen()+"</p>";
 			body += "</div>";
 			body += "<!-- Text Ends Here -->";
@@ -272,18 +273,15 @@ public class TemplateClient {
 
 	public String FunctionviewNews() {
 		String contenido = "<script>";
-		contenido = "$(document).ready(function() {";
-		contenido += "$('a.pop').click(function() {";
-		contenido += "var varnew =$(this).attr('rel');";
+		contenido += "var $=jQuery;";
+		contenido += "$(document).ready(function() {";
 		// Si en vez de por post lo queremos hacer por get, cambiamos el $.post
-		// por $.get
-		contenido += "$.post('NewsController', {";
-		contenido += "new : varnew,";
-		contenido += "}, function(responseText) {";
-		contenido += "$('#New').html(responseText);";
-		contenido += "});";
-		contenido += "});";
-		contenido += "});";
+		contenido += "$('a.news_head').click(function() ";
+		contenido += "{var varnew =$(this).attr('rel'); ";
+		contenido += "$.post('NewsController',  ";
+		contenido += "{noticia : varnew},  ";
+		contenido += "function(responseText) {$('#New').html(responseText);});}) ";
+		contenido += "}); ";
 		contenido += "</script>";
 		return contenido;
 	}

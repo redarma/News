@@ -5,9 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>AJAX JSP Servelts</title>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/jquery.js"></script>
 <script>
-	$(document).ready(function() {
+	$(document).ready(function() 
+      {
+		var $=jQuery;
 		$('#submit').click(function(event) {
 			var nombreVar = $('#nombre').val();
 			var apellidoVar = $('#apellido').val();
@@ -21,7 +23,16 @@
 				$('#tabla').html(responseText);
 			});
 		});
+	
+	$('a.enlace').click(function() 
+			{var varnew =$(this).attr('rel');
+			$.post('NewsController', 
+			{noticia : varnew,
+				apellido: "aaaaaaaaaaaaaaaa",
+				edad: "bbbbbbbbbbbbbbbbbbbbbbb"}, 
+			function(responseText) {$('#tabla').html(responseText);});})
 	});
+	
 </script>
 </head>
 <body>
@@ -30,7 +41,8 @@
 		Nombre:<input type="text" id="nombre" /> <br>
 		Apellido: <input type="text" id="apellido" /> <br>
 		Edad: <input type="text" id="edad" /> <br>
-		<input type="button" id="submit" value="Añadir" /> 
+		<input type="button" id="submit" value="Añadir" />
+		<a href="#" class="enlace" rel="02">Enlace de prueba</a> 
 	</form>
 	<br>
 	<!-- 	En este div metemos el contenido de la tabla con AJAX -->

@@ -3,7 +3,6 @@ package Controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class NewsController
  */
 @WebServlet("/NewsController")
-public class NewsController extends HttpServlet {
+public class NewsController extends HttpServlet
+{
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -42,7 +42,7 @@ public class NewsController extends HttpServlet {
 		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
 		response.setContentType( "text/html; charset=iso-8859-1" );
-		String noticia = request.getParameter("new");
+		String noticia = request.getParameter("noticia");
 		TemplateClient tm= new TemplateClient();
 		try {
 			out.print(tm.viewNew(Integer.parseInt(noticia)));
