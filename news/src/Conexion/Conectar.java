@@ -27,7 +27,6 @@ public class Conectar {
 	public ResultSet consulta(String sql) throws SQLException{
 		conectar();
 		r = s.executeQuery(sql);
-		cerrar();
 		return r; 
 	}
 	
@@ -37,3 +36,4 @@ public class Conectar {
 		cerrar();
 	}
 }
+
