@@ -8,7 +8,7 @@ public class Cuenta {
 	private String password;
 	private boolean estado;
 	private String perfil;
-	
+
 	public String getUsuario() {
 		return usuario;
 	}

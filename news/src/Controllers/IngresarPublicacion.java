@@ -1,6 +1,7 @@
 package Controllers;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -9,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Beans.Cuenta;
-import DAO.CuentaDAO;
+import Beans.Publicacion;
+import DAO.PublicacionDAO;
 
 /**
- * Servlet implementation class IngresarUsuario
+ * Servlet implementation class IngresarPublicacion
  */
-@WebServlet("/IngresarCuenta")
-public class IngresarCuenta extends HttpServlet {
+@WebServlet("/IngresarPublicacion")
+public class IngresarPublicacion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IngresarCuenta() {
+    public IngresarPublicacion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,24 +38,34 @@ public class IngresarCuenta extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("deprecation")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		CuentaDAO usuario = new CuentaDAO();
-		Cuenta nuevo = new Cuenta();
-		nuevo.setUsuario(request.getParameter("usuario"));
-		nuevo.setNombres(request.getParameter("nombre")+request.getParameter("apellido"));
-		nuevo.setDni(request.getParameter("dni"));
-		nuevo.setCorreo(request.getParameter("correo"));
-		nuevo.setEstado(true);
-		nuevo.setPerfil("usuario");
-		nuevo.setPassword(request.getParameter("password"));
+		PublicacionDAO noticia = new PublicacionDAO();
+		Publicacion nueva = new Publicacion();
+		nueva.setNoticia(Integer.parseInt(request.getParameter("noticia")));
+		nueva.setDescripcion(request.getParameter("descripcion"));
+		nueva.setContenido(request.getParameter("contenido"));
+		java.util.Date dt = new java.util.Date();
+
+		java.text.SimpleDateFormat sdf = 
+		     new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		String currentTime = sdf.format(dt);
+		nueva.setFecha(currentTime);
+		nueva.setEstado(true);
+		nueva.setCategoria("01");
+		nueva.setUsuario(request.getParameter("usuario"));
+		nueva.setImagen(request.getParameter("imagen"));
+		
 		
 		try {
-			usuario.nuevoUsuario(nuevo);
+			noticia.nuevaNoticia(nueva);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
 }
+
+

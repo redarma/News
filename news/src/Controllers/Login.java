@@ -1,59 +1,63 @@
+/**
+ * 
+ */
 package Controllers;
 
-import java.io.IOException;
+import java.sql.SQLException;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
-import Beans.UsuarioBean;
 
-/**
- * Servlet implementation class LoginServlet
- */
 
-public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import org.primefaces.context.RequestContext;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Login() {
-        super();
-        // TODO Auto-generated constructor stub
+import DAO.CuentaDAO;
+ 
+@ManagedBean(name="Login")
+@SessionScoped
+public class Login {
+	
+    private String username;
+    private String password;
+    
+	public String getPassword() {
+        return password;
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try
-		{
-			System.out.println("Iniciar Sesion");
-			UsuarioBean user = new UsuarioBean();
-			String usuario=request.getParameter("usuario");
-			String password=request.getParameter("password");
-			boolean isvalid = user.login(usuario, password);
-			if(isvalid)
-			{
-				HttpSession session = request.getSession(true);
-				session.setAttribute("usuario",usuario);
-				response.sendRedirect("LoginSuccess.jsp");
-			}else
-				response.sendRedirect("LoginFailed.jsp");
-		} catch (Throwable exc)
-		{
-			System.out.println(exc);
-		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
+	public String getUsername() {
+        return username;
+    }
+ 
+	
+	
+    public void setUsername(String username) {
+        this.username = username;
+    }
+ 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+   
+	
+	public void login(ActionEvent event) throws SQLException {
+        RequestContext context = RequestContext.getCurrentInstance();
+        FacesMessage message = null;
+        boolean loggedIn = false;
+        CuentaDAO login = new CuentaDAO(); 
+    	boolean result = login.login(username, password);
+    	
+        if(result) {
+            loggedIn = true;
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
+        } else {
+            loggedIn = false;
+            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
+        }
+        FacesContext.getCurrentInstance().addMessage(null, message);
+        context.addCallbackParam("loggedIn", loggedIn);
+    }   
+ 
 }

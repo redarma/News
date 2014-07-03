@@ -36,6 +36,7 @@ public class Index extends HttpServlet {
 		out.println(tm.Header());
 		// ingresamos aca las Operaciones a desarrollar;
 		out.print(tm.FunctionviewNews());
+		out.print(tm.FunctionviewCategoria());
 		out.println(tm.TopMenu());
 		// ingresa el menu;
 			try {

@@ -15,9 +15,9 @@ public class Conectar {
 	
 	public void conectar() throws SQLException{
 		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-		conectar = DriverManager.getConnection ("jdbc:mysql://localhost/news","root", "Juan12345*");
+		conectar = DriverManager.getConnection ("jdbc:mysql://localhost/news","root", "admin");
 		s = conectar.createStatement();
-		System.out.println("ConecciÃ³n exitosa");
+		System.out.println("Conección exitosa");
 	}
 	
 	public void cerrar() throws SQLException{
@@ -27,7 +27,6 @@ public class Conectar {
 	public ResultSet consulta(String sql) throws SQLException{
 		conectar();
 		r = s.executeQuery(sql);
-		cerrar();
 		return r; 
 	}
 	

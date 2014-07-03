@@ -220,7 +220,7 @@ public class TemplateClient {
 		String Menu = "";
 		for (CategoriaBean cat : Categorias) {
 			String url = "?proceso=category&category=" + cat.getCategoria();
-			Menu += "<a href=\"" + url + "\" class=\"menu_links\">"
+			Menu += "<a href=\"#\" class=\"menu_links\" rel="+cat.getCategoria()+">"
 					+ cat.getNombre()
 					+ "</a><span class=\"menu_border\">&nbsp;</span>";
 		}
@@ -285,4 +285,37 @@ public class TemplateClient {
 		contenido += "</script>";
 		return contenido;
 	}
+	public String FunctionviewCategoria() {
+		String contenido = "<script>";
+		contenido += "var $=jQuery;";
+		contenido += "$(document).ready(function() {";
+		// Si en vez de por post lo queremos hacer por get, cambiamos el $.post
+		contenido += "$('a.menu_links').click(function() ";
+		contenido += "{var varnew =$(this).attr('rel'); ";
+		contenido += "$.post('NewsController',  ";
+		contenido += "{categoria : varnew,"
+				+ "	   accion=categoria},  ";
+		contenido += "function(responseText) {$('#New').html(responseText);});}) ";
+		contenido += "}); ";
+		contenido += "</script>";
+		return contenido;
+	}
+	public String GeneratexCategoria(String categoria) throws SQLException {
+		String body = "";
+		NoticiaDAO nd = new NoticiaDAO();
+		List<NoticiaBean> News = nd.lastNewsForCathergory(categoria, 10);
+		body += "<!-- Left Content Body Starts Here -->";
+		body += "<div id=\"New\" style:\"text\">";
+
+		for (NoticiaBean noticiaBean : News) {
+			body += "<!-- Heading -->";
+			body += "<p class=\"page_title\">" + noticiaBean.getDescripcion() + "</p>";
+			body += "<!-- Heading -->";
+			body += "<img style=\"padding:0px 7px 0px 7px;float:left;\" src=\""
+					+ noticiaBean.GetImagen() + "\" alt=\"\" width=\"350px\"; />";
+		}
+		body += "</div>";
+		return body;
+	}
+
 }
