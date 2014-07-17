@@ -20,7 +20,10 @@ public class LoginForm extends ActionForm{
 	
 	{
 		this.UserName=UserName;
+		
+		
 	}
+	
 	
 	public String getPassword()
 	{
@@ -30,6 +33,8 @@ public class LoginForm extends ActionForm{
 	public void setPassword(String Password){
 		
 		this.Password=Password;
+		
+		
 	}
 
 }

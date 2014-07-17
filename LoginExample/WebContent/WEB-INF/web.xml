@@ -17,20 +17,9 @@
         </init-param>
         <load-on-startup>2</load-on-startup>
         </servlet>
-    <servlet>
-    	<description>
-    	</description>
-    	<display-name>qqq</display-name>
-    	<servlet-name>qqq</servlet-name>
-    	<servlet-class>aaa.qqq</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>action</servlet-name>
         <url-pattern>*.do</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-    	<servlet-name>qqq</servlet-name>
-    	<url-pattern>/qqq</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

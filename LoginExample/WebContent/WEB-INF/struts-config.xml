@@ -17,5 +17,7 @@
             <forward name="success" path="/success.jsp" />
             <forward name="failure" path="/failure.jsp" />
         </action>
+                                                                                                                 
     </action-mappings>
+    
 </struts-config>

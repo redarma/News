@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/07/2014 08:36:51 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Noticia" table="noticia" catalog="news">
+        <id name="noticia" type="int">
+            <column name="noticia" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="Usuario" fetch="select">
+            <column name="usuario" length="12" />
+        </many-to-one>
+        <many-to-one name="categoria" class="Categoria" fetch="select">
+            <column name="categoria" length="12" not-null="true" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535" not-null="true" />
+        </property>
+        <property name="contenido" type="string">
+            <column name="contenido" length="65535" not-null="true" />
+        </property>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" not-null="true" />
+        </property>
+        <property name="estado" type="java.lang.Boolean">
+            <column name="estado" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="imagen" length="100" />
+        </property>
+        <set name="opinions" table="opinion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="noticia" not-null="true" />
+            </key>
+            <one-to-many class="Opinion" />
+        </set>
+    </class>
+</hibernate-mapping>

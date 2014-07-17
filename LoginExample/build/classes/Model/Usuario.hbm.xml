@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/07/2014 08:36:51 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Usuario" table="usuario" catalog="news">
+        <id name="usuario" type="string">
+            <column name="usuario" length="12" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="perfil" class="Perfil" fetch="select">
+            <column name="perfil" length="10" />
+        </many-to-one>
+        <property name="nombres" type="string">
+            <column name="nombres" length="200" />
+        </property>
+        <property name="dni" type="string">
+            <column name="dni" length="10" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="30" />
+        </property>
+        <property name="estado" type="java.lang.Boolean">
+            <column name="estado" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="20" />
+        </property>
+        <set name="opinions" table="opinion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuario" length="12" />
+            </key>
+            <one-to-many class="Opinion" />
+        </set>
+        <set name="noticias" table="noticia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuario" length="12" />
+            </key>
+            <one-to-many class="Noticia" />
+        </set>
+    </class>
+</hibernate-mapping>
