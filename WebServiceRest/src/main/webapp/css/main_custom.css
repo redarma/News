@@ -1,0 +1,50 @@
+
+img {
+    vertical-align: inherit;
+}
+
+#textbox {
+	/* #textbox => id="textbox" */
+	position: absolute;
+	left: 100px;
+	top: 100px;
+    background: #eeeeee;
+}
+
+.blueline {
+	/*display: block;
+	width: 810px;
+	height: 20px;
+	line-height: 20px;
+    margin-bottom: 12px;*/
+	background: #3742a7;
+	color: #fff;
+	padding-left: 6px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+#newsArea {
+	/*margin-left: 100px;*/
+	text-align: left;
+	width: 810px;
+}
+
+.news-Area {
+	/*line-height: 20px;
+	width: 100%;*/
+	margin: 0px;
+	padding-left: 6px;
+}
+
+.news-text {
+	background: #b3d4fc;
+	padding-left: 6px;
+}
+
+.clear {
+	xheight: auto !important;
+	width: 100%;
+	background: #fff;
+}
