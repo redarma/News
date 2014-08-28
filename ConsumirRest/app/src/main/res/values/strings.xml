@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Rest</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="id_label">The ID is</string>
+    <string name="id_value">[id]</string>
+    <string name="title_label">The title is</string>
+    <string name="title_value">[title]</string>
+    <string name="description_label">The description is</string>
+    <string name="description_value">[description]</string>
+    <string name="text_label">The text is</string>
+    <string name="text_value">[text]</string>
+    <string name="category_label">The category is</string>
+    <string name="category_value">[category]</string>
+    <string name="date_label">The date is</string>
+    <string name="date_value">[date]</string>
+</resources>
