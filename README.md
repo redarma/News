@@ -1,1 +1,1 @@
-Trabajo individual de Consumir servicio Rest de Sistema Noticias con Android
+Trabajo individual de Consumir servicio Rest(WebServiceRest) de Sistema Noticias con Android(ConsumirRest) e Implementación de Busqueda Inteligente(BusquedaInteligente) e implementación en el Sistema de Noticias(SistemaNoticias) de extracción de inteligencia de tags y búsqueda.
