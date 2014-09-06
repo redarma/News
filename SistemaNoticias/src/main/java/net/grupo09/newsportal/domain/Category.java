@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
+import org.hibernate.search.annotations.Field;
 
 /**
  * Represents category of article
@@ -38,6 +39,7 @@ public class Category extends BaseEntity {
 	 * Category name
 	 */
 	@Column(name = "name", nullable = false, unique = true, length = 30)
+	@Field
 	private String name;
 	
 	/**

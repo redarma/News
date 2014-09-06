@@ -49,6 +49,7 @@
 			</bean>
 		</property>
 		<property name="jpaVendorAdapter">
+		
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="database" value="H2" />
 				<property name="generateDdl" value="true" />

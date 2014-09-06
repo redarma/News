@@ -21,6 +21,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
+import org.hibernate.search.annotations.Field;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -49,6 +50,7 @@ public class User extends BaseEntity {
 	 */
 	@Size(min = 4, max = 30, message = "{validation.user.loginSize}")
 	@Column(name = "login", nullable = false, unique = true)
+	@Field
 	private String login;
 
 	/**
