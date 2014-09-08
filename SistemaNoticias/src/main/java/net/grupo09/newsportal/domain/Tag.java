@@ -13,7 +13,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
-import org.hibernate.search.annotations.Field;
 
 /**
  * Represents tag of article
@@ -42,7 +41,7 @@ public class Tag extends BaseEntity {
 	 * Tag name
 	 */
 	@Column(name = "name", nullable = false, unique = true, length = 20)
-	@Field
+	//@Field
 	private String name;
 	
 	/**

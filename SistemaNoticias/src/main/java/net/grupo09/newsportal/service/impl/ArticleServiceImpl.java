@@ -245,6 +245,7 @@ public class ArticleServiceImpl extends AbstractServiceImpl<Article> implements 
 	public Map<String, Object> getByPageByFragment(int page, int articlesPerPage,
 			String fragment) {
 		try {
+			//almacena string fragment y el objeto %fragment% en un Map 
 			Map<String, Object> parameters = setParam(
 					"fragment", "%" + fragment + "%").buildMap();
 			int articleCount = repository.getCountByNamedQuery(

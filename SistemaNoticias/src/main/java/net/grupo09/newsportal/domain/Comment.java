@@ -14,7 +14,6 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -39,7 +38,7 @@ public class Comment extends BaseEntity {
 	 */
 	@NotBlank(message = "{validation.comment.content}")
 	@Column(name = "content", length = 500)
-	@Field
+	//@Field
 	private String content;
 	
 	/**

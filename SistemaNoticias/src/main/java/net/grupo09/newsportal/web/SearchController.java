@@ -9,7 +9,6 @@ import net.grupo09.newsportal.service.ArticleService;
 import net.grupo09.newsportal.web.constants.Common;
 import net.grupo09.newsportal.web.constants.URL;
 import net.grupo09.newsportal.web.constants.View;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -161,7 +160,6 @@ public class SearchController {
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = URL.SEARCH_BY_FRAGMENT_SUBMIT)
 	public String searchSubmit(@RequestParam("fragment") String fragment) {
-		
 		return "redirect:/search/" + fragment;
 	}
 	

@@ -22,14 +22,6 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
-import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
-import org.hibernate.search.annotations.IndexedEmbedded;
-import org.hibernate.search.annotations.Resolution;
-import org.hibernate.search.annotations.Store;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -38,7 +30,6 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author Juan
  */
 @Entity
-@Indexed
 @Table(name = "article")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @NamedQueries({
@@ -70,7 +61,6 @@ public class Article extends BaseEntity {
 	 */
 	@NotBlank(message = "{validation.article.title}")
 	@Column(name = "title", nullable = false, length = 100)
-	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private String title;
 
 	/**
@@ -78,7 +68,6 @@ public class Article extends BaseEntity {
 	 */
 	@NotBlank(message = "{validation.article.preview}")
 	@Column(name = "preview", nullable = false)
-	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private String preview;
 
 	/**
@@ -86,7 +75,6 @@ public class Article extends BaseEntity {
 	 */
 	@NotBlank(message = "{validation.article.content}")
 	@Column(name = "content", nullable = false, length = 65535)
-	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private String content;
 
 	/**
@@ -95,8 +83,6 @@ public class Article extends BaseEntity {
 	@Column(name = "created", insertable = false, updatable = false,
 			columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
-	@Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
-	@DateBridge(resolution=Resolution.DAY)
 	private final Date created;
 
 	/**
@@ -104,8 +90,6 @@ public class Article extends BaseEntity {
 	 */
 	@Column(name = "last_modified")
 	@Temporal(TemporalType.TIMESTAMP)
-	@Field(index=Index.YES, analyze=Analyze.NO, store=Store.YES)
-	@DateBridge(resolution=Resolution.DAY)
 	private Date lastModified;
 
 	/**
@@ -125,7 +109,6 @@ public class Article extends BaseEntity {
 	 */
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", nullable = false, updatable = false)
-	@IndexedEmbedded
 	private User author;
 
 	/**
@@ -133,7 +116,6 @@ public class Article extends BaseEntity {
 	 */
 	@ManyToOne
 	@JoinColumn(name = "category_id")
-	@IndexedEmbedded
 	private Category category;
 	
 	/**
@@ -141,7 +123,6 @@ public class Article extends BaseEntity {
 	 */
 	@OneToMany(mappedBy = "article", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	@OrderBy("created desc")
-	@IndexedEmbedded
 	private Set<Comment> comments;
 	
 	/**
@@ -152,7 +133,6 @@ public class Article extends BaseEntity {
 			joinColumns = {@JoinColumn(name = "article_id") },
 			inverseJoinColumns = {@JoinColumn(name = "tag_id") })
 	@OrderBy("name")
-	@IndexedEmbedded
 	private Set<Tag> tags;
 
 	/**

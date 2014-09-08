@@ -32,9 +32,9 @@
 	</bean>
 
 	<!-- Initialize db -->
-	<!-- <jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">-->
-	<!--	<jdbc:script location="classpath:/META-INF/sql/DUMP_DATA.sql" />-->
-	<!--</jdbc:initialize-database>-->
+	<!-- <jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">
+		<jdbc:script location="classpath:/META-INF/sql/DUMP_DATA.sql" />
+	</jdbc:initialize-database> -->
 
 	<!-- JPA EntityManager -->
 	<bean id="entityManagerFactory"
