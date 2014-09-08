@@ -106,18 +106,6 @@ public class BlogSearchExample {
         indexSearcher.close();
     }
     
-    
-    
-    //1. adding and deleting documents to an index
-    //2. synonyms e.g
-    //3. boosting
-     //4. to sort by a different field, add as field untokenized,
-     //must be convertible to floats, ints, or strings
-     //2.7 performance tuning of lucene
-    //To boost a document simply use
-    // document.setBoost(boost);
-     //field.setBoost(boost);
-    
     public static void main(String [] args) throws Exception {
         BlogSearchExample bs = new BlogSearchExample();
         String tag = "collective intelligence";
